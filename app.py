@@ -1,6 +1,4 @@
-from pathlib import Path
-
-app_code = r'''import os
+import os
 import json
 import numpy as np
 import pandas as pd
@@ -1125,13 +1123,3 @@ st.caption(
     "Prototype for demonstration and research decision support. "
     "Final navigation decisions remain with qualified operators."
 )
-'''
-
-out = Path("/mnt/data/app.py")
-out.write_text(app_code, encoding="utf-8")
-
-# Syntax check and quick sanity checks.
-import py_compile
-py_compile.compile(str(out), doraise=True)
-print(f"Created and syntax-checked: {out}")
-print(f"Lines: {len(app_code.splitlines())}")
