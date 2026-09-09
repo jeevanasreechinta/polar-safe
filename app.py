@@ -140,7 +140,11 @@ try:
     bathymetry = np.load(PATHS["bathymetry"], allow_pickle=False)
 except Exception:
     bathymetry = None
-land_mask = np.load(PATHS["land_mask"], allow_pickle=True)
+
+try:
+    land_mask = np.load(PATHS["land_mask"], allow_pickle=False)
+except Exception:
+    land_mask = np.zeros((100, 100), dtype=bool)
 shortest_route = load_csv(PATHS["shortest"])
 balanced_route = load_csv(PATHS["balanced"])
 risk_aware_route = load_csv(PATHS["risk_aware"])
