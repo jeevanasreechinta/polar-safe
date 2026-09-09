@@ -136,7 +136,10 @@ sea_ice = load_csv(PATHS["sea_ice"])
 iceberg_risk = load_csv(PATHS["iceberg_risk"])
 iceberg_trajectory = load_csv(PATHS["iceberg_trajectory"])
 combined = load_csv(PATHS["combined"])
-bathymetry = np.load(PATHS["bathymetry"], allow_pickle=True)
+try:
+    bathymetry = np.load(PATHS["bathymetry"], allow_pickle=False)
+except Exception:
+    bathymetry = None
 land_mask = np.load(PATHS["land_mask"], allow_pickle=True)
 shortest_route = load_csv(PATHS["shortest"])
 balanced_route = load_csv(PATHS["balanced"])
